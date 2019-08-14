@@ -1,0 +1,29 @@
+{
+  "name": "structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dynacore/structures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dynacore/structures/issues"
+  },
+  "homepage": "https://github.com/dynacore/structures#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
+  }
+}
