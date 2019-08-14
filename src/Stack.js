@@ -38,7 +38,7 @@ class Stack {
             }
         }
         string += "]"
-        return eval(string)
+        return string
     }
     size() {
         return this.count;

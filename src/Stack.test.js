@@ -26,7 +26,6 @@ describe('Stack', () => {
     })
     it('should print string of stack', () => {
         const stack = new Stack();
-        const s = 'test'
         for (let i = 0; i>6; i++){
             stack.push(i)
         }

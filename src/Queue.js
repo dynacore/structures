@@ -10,7 +10,7 @@ class Queue {
 
         this.count--;
         var result = this.storage[0];
-        for(let i=1;i<=this.count,i++){
+        for(let i=1;i<=this.count;i++){
             this.storage[i-1] = this.storage[i]
         }
         delete this.storage[this.count];
@@ -37,14 +37,14 @@ class Queue {
     }
     toString(){
         var string = "["
-        for(let i = this.count-1; i>=0;i--){
+        for(let i = 0; i<this.count;i++){
             string += this.storage[i]
-            if(i>0){
+            if(i<this.count-1){
                 string += ", "
             }
         }
         string += "]"
-        return eval(string)
+        return string
     }
     size() {
         return this.count;
@@ -55,15 +55,13 @@ module.exports = Queue;
 
 var test = new Queue()
 console.log(test.empty())
-/*
 test.enqueue("Bubbles")
 test.enqueue("Gob")
 test.enqueue("Frank")
+console.log(test.front())
+console.log(test.rear())
 console.log(test.empty())
-console.log(test.peek())
-console.log(test.peek())
-console.log(test.peek())
+console.log(test.toString())
 console.log(test.dequeue())
 console.log(test.dequeue())
 console.log(test.dequeue())
-*/
