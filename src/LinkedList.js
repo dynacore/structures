@@ -58,8 +58,8 @@ var names = [
     "Franklin",
     "Frank",
     "Michael",
-    "Gob",
     "Ricky",
+    "Gob",
     "Julian",
     "Bubbles"
 ]
