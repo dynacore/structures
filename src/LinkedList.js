@@ -1,67 +1,92 @@
-class LinkedList {
-    constructor(name) {
-        this.count = 0;
-        this.storage = {};
-    }
-    dequeue() {
-        if(this.count === 0){
-            return undefined;
+function LinkedList () {
+    var count = 0;
+    var storage = {};
+    this.head = null
+    this.tail = null
+    this.add = function (k,v = {}) {
+        if(count > 0){
+            storage[this.tail].next = k
+        } else {
+            this.head = k;
         }
-
-        this.count--;
-        var result = this.storage[0];
-        for(let i=1;i<=this.count;i++){
-            this.storage[i-1] = this.storage[i]
-        }
-        delete this.storage[this.count];
-        return result;
+        storage[k] = { key: k, value: v, next: null } 
+        this.tail = k;
+        count = count + 1
+        return storage[k];
 
     }
-    head(){
-        return this.storage[0];
+    this.next =  function (k) {
+        if(storage[k] && storage[k].next){
+            return storage[k].next
+        } else {
+            return undefined
+        }
     }
-    tail(){
-        return this.storage[this.count-1];
-    }
-    enqueue(val) {
-        this.storage[this.count] = val;
-        this.count++;
-    }
-    empty(){
-        if(this.count === 0){
+    
+    this.empty = function () {
+        if(count === 0){
             return true;
         }
         else {
             return false;
         }
     }
-    toString(){
-        return JSON.stringify(Object.values(this.storage)); 
+    this.toString = function () {
+        return JSON.stringify(Object.values(storage)); 
     }
-    size() {
-        return this.count;
+    this.list = function () {
+        var start = this.head
+        var pointer = start
+        var all = ""
+        while (this.next(pointer) != undefined){
+            all = all + "\n" + JSON.stringify(storage[pointer])
+            pointer = this.next(pointer)
+        }
+        all = all + "\n" + JSON.stringify(storage[this.tail])
+        return all
+    }
+    this.size = function () {
+        return count;
     }
 }
 
 module.exports = LinkedList;
+var names = [
+    "Buddy",
+    "Heeday",
+    "Dwight",
+    "Franklin",
+    "Frank",
+    "Michael",
+    "Gob",
+    "Ricky",
+    "Julian",
+    "Bubbles"
+]
 
 var test = new LinkedList()
 console.log(test.empty())
-test.enqueue("Bubbles")
-test.enqueue("Gob")
-test.enqueue("Frank")
-console.log(test.head())
-console.log(test.tail())
+for (var y in names) {
+    out(test.add(names[y]))
+}
+console.log(test.head)
+console.log(test.tail)
 console.log(test.empty())
-console.log(test.toString())
-console.log(test.dequeue())
-console.log(test.dequeue())
-console.log(test.dequeue())
-    /*
+//console.log(test.toString())
+out(test.list())
+console.log(test.head)
+console.log(test.tail)
+//console.log(test.next(test.head))
+/*
 var linkedList = new LinkedList();
 for (let i = 0; i<60; i++){
     linkedList.enqueue(i + "a")
-    //console.log(i)
+//console.log(i)
 }
 console.log(queue.toString())
 */
+function out (x) {
+    console.log(x)
+}
+
+    
