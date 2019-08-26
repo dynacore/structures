@@ -34,7 +34,7 @@ class Stack {
         for(let i = this.count-1; i>=0;i--){
             string += this.storage[i]
             if(i>0){
-                string += ", "
+                string += ","
             }
         }
         string += "]"

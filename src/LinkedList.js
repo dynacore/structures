@@ -1,4 +1,4 @@
-class Queue {
+class LinkedList {
     constructor(name) {
         this.count = 0;
         this.storage = {};
@@ -17,10 +17,10 @@ class Queue {
         return result;
 
     }
-    front(){
+    head(){
         return this.storage[0];
     }
-    rear(){
+    tail(){
         return this.storage[this.count-1];
     }
     enqueue(val) {
@@ -43,24 +43,24 @@ class Queue {
     }
 }
 
-module.exports = Queue;
+module.exports = LinkedList;
 
-var test = new Queue()
+var test = new LinkedList()
 console.log(test.empty())
 test.enqueue("Bubbles")
 test.enqueue("Gob")
 test.enqueue("Frank")
-console.log(test.front())
-console.log(test.rear())
+console.log(test.head())
+console.log(test.tail())
 console.log(test.empty())
 console.log(test.toString())
 console.log(test.dequeue())
 console.log(test.dequeue())
 console.log(test.dequeue())
     /*
-var queue = new Queue();
+var linkedList = new LinkedList();
 for (let i = 0; i<60; i++){
-    queue.enqueue(i + "a")
+    linkedList.enqueue(i + "a")
     //console.log(i)
 }
 console.log(queue.toString())

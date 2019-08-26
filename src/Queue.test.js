@@ -28,7 +28,7 @@ describe('Queue', () => {
     })
     it('should print string of queue', () => {
         const queue = new Queue();
-        for (let i = 0; i>6; i++){
+        for (let i = 0; i<6; i++){
             queue.enqueue(i)
         }
         expect(queue.toString()).toBe("[0,1,2,3,4,5]")

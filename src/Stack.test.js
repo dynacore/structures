@@ -26,7 +26,7 @@ describe('Stack', () => {
     })
     it('should print string of stack', () => {
         const stack = new Stack();
-        for (let i = 0; i>6; i++){
+        for (let i = 0; i<6; i++){
             stack.push(i)
         }
         expect(stack.toString()).toBe("[5,4,3,2,1,0]")
