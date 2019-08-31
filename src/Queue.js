@@ -44,7 +44,7 @@ class Queue {
 }
 
 module.exports = Queue;
-
+/*
 var test = new Queue()
 console.log(test.empty())
 test.enqueue("Bubbles")
@@ -57,6 +57,7 @@ console.log(test.toString())
 console.log(test.dequeue())
 console.log(test.dequeue())
 console.log(test.dequeue())
+*/
     /*
 var queue = new Queue();
 for (let i = 0; i<60; i++){

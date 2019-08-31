@@ -53,7 +53,7 @@ class Arr {
 }
 
 module.exports = Arr;
-
+/*
 var test = new Arr()
 console.log(test.empty())
 test.push("Bubbles")
@@ -71,3 +71,4 @@ console.log(test.length)
 console.log(test.pop())
 console.log(test.length)
 console.log(test.pop())
+*/

@@ -1,4 +1,4 @@
-function LinkedList () {
+function DoubleLinkedList () {
     var count = 0;
     var storage = {};
     this.head = null
@@ -9,7 +9,7 @@ function LinkedList () {
         } else {
             this.head = k;
         }
-        storage[k] = { key: k, value: v, next: null } 
+        storage[k] = { key: k, value: v, next: null, prev: this.tail} 
         this.tail = k;
         count = count + 1
         return storage[k];
@@ -22,6 +22,14 @@ function LinkedList () {
             return undefined
         }
     }
+    this.prev =  function (k) {
+        if(storage[k] && storage[k].prev){
+            return storage[k].prev
+        } else {
+            return undefined
+        }
+    }
+
     this.insertAt = function(element, index = this.tail){
         if(element.key){
             var next = storage[index].next;
@@ -73,7 +81,7 @@ function LinkedList () {
     }
 }
 
-module.exports = LinkedList;
+module.exports = DoubleLinkedList;
 var names = [
     "Buddy",
     "Heeday",
@@ -86,8 +94,8 @@ var names = [
     "Julian",
     "Bubbles"
 ]
-/*
-var test = new LinkedList()
+
+var test = new DoubleLinkedList()
 console.log(test.empty())
 for (var y in names) {
     out(test.add(names[y]))
@@ -97,17 +105,18 @@ console.log(test.tail)
 console.log(test.empty())
 out(test.toString())
 console.log(test.head)
+console.log(test.next(test.head))
+console.log(test.prev(test.tail))
 console.log(test.tail)
 console.log(test.insertAt({key: "Andy", value: {}}, "Dwight"))
 
 out(test.toString())
-*/
 //console.log(test.toString())
 //console.log(test.next(test.head))
 /*
-var linkedList = new LinkedList();
+var doubleLinkedList = new DoubleLinkedList();
 for (let i = 0; i<60; i++){
-    linkedList.enqueue(i + "a")
+    doubleLinkedList.enqueue(i + "a")
 //console.log(i)
 }
 console.log(queue.toString())

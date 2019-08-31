@@ -1,4 +1,4 @@
-function LinkedList () {
+function Tree () {
     var count = 0;
     var storage = {};
     this.head = null
@@ -73,7 +73,7 @@ function LinkedList () {
     }
 }
 
-module.exports = LinkedList;
+module.exports = Tree;
 var names = [
     "Buddy",
     "Heeday",
@@ -87,7 +87,7 @@ var names = [
     "Bubbles"
 ]
 /*
-var test = new LinkedList()
+var test = new Tree()
 console.log(test.empty())
 for (var y in names) {
     out(test.add(names[y]))
@@ -105,9 +105,9 @@ out(test.toString())
 //console.log(test.toString())
 //console.log(test.next(test.head))
 /*
-var linkedList = new LinkedList();
+var tree = new Tree();
 for (let i = 0; i<60; i++){
-    linkedList.enqueue(i + "a")
+    tree.enqueue(i + "a")
 //console.log(i)
 }
 console.log(queue.toString())

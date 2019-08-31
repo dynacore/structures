@@ -47,8 +47,8 @@ class Stack {
 
 module.exports = Stack;
 
-var test = new Stack()
-console.log(test.empty())
+//var test = new Stack()
+//console.log(test.empty())
 /*
 test.push("Bubbles")
 test.push("Gob")
