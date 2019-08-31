@@ -1,43 +1,39 @@
 function Tree () {
     var count = 0;
     var storage = {};
-    this.head = null
-    this.tail = null
-    this.add = function (k,v = {}) {
-        if(count > 0){
-            storage[this.tail].next = k
-        } else {
-            this.head = k;
+    var root = null;
+    this.add = function (p,k,v = {}) {
+        if(root == null){
+            root = k;
+            p = null
         }
-        storage[k] = { key: k, value: v, next: null } 
-        this.tail = k;
+        storage[k] = { key: k, value: v, parents: p, children: [] } 
+        if(p){
+            storage[p].children.push(k)
+        }
         count = count + 1
         return storage[k];
 
     }
-    this.next =  function (k) {
-        if(storage[k] && storage[k].next){
-            return storage[k].next
+    this.parents =  function (k) {
+        if(storage[k] && storage[k].parents){
+            return storage[k].parents
         } else {
             return undefined
         }
     }
-    this.insertAt = function(element, index = this.tail){
-        if(element.key){
-            var next = storage[index].next;
-            storage[element.key] = {
-                key: element.key,
-                value: element.value,
-                next: next
-            }
-            storage[index].next = element.key;
-            count++
-            return storage[element.key]
+    this.children =  function (k) {
+        if(storage[k] && storage[k].children){
+            return storage[k].children
         } else {
-            return "Element needs key to add to linked list."
+            return undefined
         }
     }
-    this.removeNext = function(index){
+    this.root = function(){
+        return root;
+    }
+    /*
+    this.remove = function(index){
         var original_next = storage[index].next
         var new_next = storage[original_next].next
         if(original_next == this.tail){
@@ -49,6 +45,7 @@ function Tree () {
         count--
         return 
     }
+    */
     this.empty = function () {
         if(count === 0){
             return true;
@@ -58,15 +55,8 @@ function Tree () {
         }
     }
     this.toString = function () {
-        var start = this.head
-        var pointer = start
-        var all = "["
-        while (this.next(pointer) != undefined){
-            all = all + JSON.stringify(storage[pointer])+","
-            pointer = this.next(pointer)
-        }
-        all = all + JSON.stringify(storage[this.tail])+"]"
-        return all
+        out(JSON.stringify(storage))
+        return JSON.stringify(storage)
     }
     this.size = function () {
         return count;
@@ -86,6 +76,15 @@ var names = [
     "Julian",
     "Bubbles"
 ]
+var tree = new Tree()
+for (var i=0; i<names.length; i++){
+    if(i>0){
+        tree.add(names[i-1], names[i],{test: "asnery"})
+    } else {
+        tree.add(null,names[i],{})
+    }
+}
+tree.toString()
 /*
 var test = new Tree()
 console.log(test.empty())
